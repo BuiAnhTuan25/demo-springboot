@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/><title>List Todo</title>
+    <meta http-equiv="Content-Type"content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/bootstrap.css}"rel="stylesheet"/>
+    <link th:href="@{/css/main.css}"rel="stylesheet"/>
+    <script th:src="@{/js/bootstrap.js}"></script>
+</head>
+<body>
+<h1>List Todo
+</h1>
+<ul>
+    <li th:each="todo : ${todoList}">
+    <span th:text="*{todo.getTitle()}"></span> :
+    <span th:text="*{todo.getDetail()}"></span>
+        <a th:href="@{/todo/{id}(id=*{todo.getId()})}" class="btn btn-primary">Sửa</a>
+    </li>
+</ul>
+<a th:href="@{/addTodo}" class="btn btn-success">
++ Thêm công việc
+</a>
+</body>
+</html>
